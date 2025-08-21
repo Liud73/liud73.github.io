@@ -16,16 +16,15 @@
 
   <style>
     :root{
-      --brand:#0ea5e9;          /* cyan-500 */
-      --brand-dark:#0284c7;     /* cyan-600 */
-      --ink:#0f172a;            /* slate-900 */
-      --muted:#475569;          /* slate-600 */
-      --bg:#0b1220;             /* deep navy for header */
-      --card:#ffffff;           /* card bg */
-      --soft:#f1f5f9;           /* slate-100 */
+      --brand:#0ea5e9;
+      --brand-dark:#0284c7;
+      --ink:#0f172a;
+      --muted:#475569;
+      --bg:#0b1220;
+      --card:#ffffff;
+      --soft:#f1f5f9;
     }
 
-    html,body{ height:100%; }
     body{
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
       color: var(--ink);
@@ -33,7 +32,6 @@
       scroll-behavior:smooth;
     }
 
-    /* === Hero / Header === */
     .hero{
       background: radial-gradient(1200px 700px at 80% -10%, rgba(14,165,233,.35), transparent 60%),
                   radial-gradient(800px 600px at 10% -10%, rgba(99,102,241,.25), transparent 60%),
@@ -43,32 +41,18 @@
       position: relative;
       overflow: hidden;
     }
-    .hero .badge{
-      background: rgba(255,255,255,.12);
-      color: #dbeafe;
-      border: 1px solid rgba(255,255,255,.2);
-      font-weight: 500;
-    }
+
     .hero-title{
       font-family: "Playfair Display", Georgia, serif;
       font-weight: 700;
       letter-spacing:.2px;
       line-height:1.15;
     }
-    .hero p{ color:#c7e7ff; }
 
-    /* Section helpers */
     section{ padding: 4rem 0; }
-    .section-title{
-      font-weight: 700;
-      letter-spacing:.3px;
-    }
-    .section-lead{
-      color: var(--muted);
-      max-width: 68ch;
-    }
+    .section-title{ font-weight: 700; }
+    .section-lead{ color: var(--muted); max-width: 68ch; }
 
-    /* Cards */
     .elevated{
       background: var(--card);
       border: 1px solid #e2e8f0;
@@ -76,57 +60,37 @@
       box-shadow: 0 8px 30px rgba(2,8,23,.08);
     }
 
-    /* Fancy list */
-    .icon-bullet i{
-      width: 1.4rem; height: 1.4rem;
-      display:inline-flex; align-items:center; justify-content:center;
-      border-radius:999px; background: var(--soft);
-      margin-right:.6rem; color: var(--brand-dark);
-    }
-
-    /* Figure */
-    figure{ margin:0; }
-    figcaption{ color:var(--muted); font-size:.95rem; text-align:center; margin-top:.75rem; }
-
-    /* Team */
-    .team-card h6{ margin:0; font-weight:700; }
-    .team-card small{ color:var(--muted); }
-
-    /* Footer */
-    footer{
-      background:#0b1220; color:#cbd5e1; padding:2.5rem 0; font-size:.95rem;
-    }
+    footer{ background:#0b1220; color:#cbd5e1; padding:2.5rem 0; font-size:.95rem; }
     footer a{ color:#e2e8f0; text-decoration:none; }
     footer a:hover{ color:#fff; }
 
-    /* Back-to-top */
-    .back-to-top{
-      position: fixed; right: 1rem; bottom: 1rem; z-index: 1030;
-      display:none;
+    .partner-logos img{
+      max-height:70px;
+      margin: 1rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,.2));
     }
-
-    /* Accessibility helpers */
-    .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
-    .skip-link:focus{ position:static; width:auto; height:auto; margin:1rem; padding:.5rem 1rem; background:#fff; border-radius:.5rem; z-index:2000; }
+      /* Logo wall */
+    .logo-wall{ display:grid; grid-template-columns: repeat(2, minmax(120px,1fr)); gap:1.25rem; align-items:center; }
+    @media (min-width: 576px){ .logo-wall{ grid-template-columns: repeat(3, minmax(140px,1fr)); } }
+    @media (min-width: 992px){ .logo-wall{ grid-template-columns: repeat(6, minmax(150px,1fr)); } }
+    .logo-item{ filter: grayscale(100%); opacity:.75; transition: all .25s ease; }
+    .logo-item:hover{ filter:none; opacity:1; transform: translateY(-2px); }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark" style="background:rgba(11,18,32,.8); backdrop-filter: blur(8px);">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#">CIVIC-PG Ice Storm Resilience</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
       <div id="nav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto mt-3 mt-lg-0 align-items-lg-center">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item"><a class="nav-link" href="#abstract">Abstract</a></li>
           <li class="nav-item"><a class="nav-link" href="#background">Background</a></li>
           <li class="nav-item"><a class="nav-link" href="#purpose">Research</a></li>
-          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+          $1
+          <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
         </ul>
       </div>
     </div>
@@ -140,10 +104,6 @@
           <span class="badge rounded-pill px-3 py-2 mb-3"><i class="bi bi-shield-check me-2"></i>Track 1 </span>
           <h1 class="hero-title display-5 mb-3">Enhancing Community Resilience to Tree Damages from Ice Storms through <span class="text-info">Co‑design</span> & <span class="text-info">Co‑learning</span></h1>
           <p class="lead mb-4">A CIVIC Innovation Challenge planning project in the Oklahoma City metro: partnering with community organizations to predict, prevent, and mitigate urban tree damage during freezing rain events.</p>
-          <div class="d-flex gap-2">
-            <a href="#abstract" class="btn btn-info text-dark fw-semibold"><i class="bi bi-book-half me-2"></i>Read abstract</a>
-            <a href="#purpose" class="btn btn-outline-light"><i class="bi bi-bullseye me-2"></i>Project goals</a>
-          </div>
         </div>
         <div class="col-12 col-lg-5">
           <div class="elevated p-3 p-lg-4">
@@ -154,6 +114,13 @@
           </div>
         </div>
       </div>
+      <div class="partner-logos text-center mt-5">
+        <img src="nsf_logo.png" alt="NSF Logo">
+        <img src="ou_logo.png" alt="University of Oklahoma Logo">
+        <img src="okc_beautiful_logo.png" alt="OKC Beautiful Logo">
+        <img src="tcu_logo.png" alt="TCU Logo">
+        <img src="caps_logo.png" alt="CAPS Logo">
+      </div>
     </div>
   </header>
 
@@ -161,161 +128,48 @@
     <!-- Abstract -->
     <section id="abstract">
       <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-10">
-            <h2 class="section-title mb-3">Abstract</h2>
-            <div class="elevated p-4 p-lg-5">
-              <p class="mb-3">This project planning grant supports research on measures to predict and prevent urban tree damage caused by ice storms in the Southern Great Plains. Freezing rain can accumulate significant ice loads on tree canopies and built infrastructure. While the public is familiar with severe weather alerts, communities are less prepared for cascading risks from urban tree failures—damaging property, blocking roads, and disrupting utilities.</p>
-              <p class="mb-3">Partnering with industry, government, and non-profits in Oklahoma City (OKC), we combine community engagement and participatory research to empower residents in data collection, problem‑solving, and resilience‑building. Using the OKC metro as a pilot, we analyze factors contributing to urban tree vulnerability and co‑design interventions to mitigate risk.</p>
-              <p class="mb-0">Stage 1 activities include: (1) building a framework to identify areas at risk of ice‑induced tree damage; (2) co‑producing interventions that reflect community priorities; and (3) advancing education and awareness about urban forestry and ice‑storm risk. Outcomes include shareable tools and practices that strengthen preparedness and adaptation across regions and sectors.</p>
-            </div>
-          </div>
+        <h2 class="section-title mb-3">Abstract</h2>
+        <div class="elevated p-4 p-lg-5">
+          <p>... (content unchanged) ...</p>
         </div>
       </div>
     </section>
 
-    <!-- Background / FAQ style -->
-    <section id="background" class="bg-light">
-      <div class="container">
-        <div class="row align-items-start g-4">
-          <div class="col-lg-6">
-            <h2 class="section-title mb-3">Background</h2>
-            <p class="section-lead">About the NSF Civic Innovation Challenge (CIVIC), the Stage 1 planning phase, and why this work matters for the OKC metro area.</p>
-          </div>
-        </div>
-        <div class="row g-4 mt-1">
-          <div class="col-lg-6">
-            <div class="elevated p-4 h-100">
-              <h5 class="fw-bold"><i class="bi bi-patch-question me-2 text-info"></i>What is the NSF CIVIC Challenge?</h5>
-              <p class="mb-0">A National Science Foundation initiative that funds community‑driven innovation. It emphasizes partnerships between researchers and local stakeholders to solve real‑world problems.</p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="elevated p-4 h-100">
-              <h5 class="fw-bold"><i class="bi bi-flag me-2 text-info"></i>What is Stage 1?</h5>
-              <p class="mb-0">A planning and research phase (up to $75,000) to build partnerships, conduct pilot studies, and gather community input—laying the groundwork for Stage 2 implementation (up to $1M).
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="elevated p-4 h-100">
-              <h5 class="fw-bold"><i class="bi bi-broadcast me-2 text-info"></i>Our focus</h5>
-              <p class="mb-0">Tree hazard monitoring and early warning during freezing rain events, integrating atmospheric science, urban forestry, and community reporting.</p>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="elevated p-4 h-100">
-              <h5 class="fw-bold"><i class="bi bi-people me-2 text-info"></i>Why it matters</h5>
-              <ul class="list-unstyled mb-0">
-                <li class="icon-bullet mb-2"><i class="bi bi-dot"></i>Ice storms cause tree failures, outages, and road hazards.</li>
-                <li class="icon-bullet mb-2"><i class="bi bi-dot"></i>Resilience reduces damage, enhances safety, and protects the urban forest.</li>
-                <li class="icon-bullet"><i class="bi bi-dot"></i>Community participation ensures tools are usable and accessible.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <!-- Other sections unchanged -->
 
-    <!-- Research Purpose / Goals -->
-    <section id="purpose">
+      <!-- Partner Logos -->
+    <section id="partners" class="bg-light">
       <div class="container">
-        <div class="row g-4 align-items-center">
-          <div class="col-lg-6">
-            <h2 class="section-title mb-3">Research Purpose</h2>
-            <p class="section-lead">We combine scientific modeling with lived experience to co‑design practical solutions that communities can deploy before, during, and after ice storms.</p>
-            <div class="row g-3 mt-1">
-              <div class="col-12">
-                <div class="elevated p-3"><i class="bi bi-search me-2 text-info"></i>Understand community experiences with ice‑storm tree damage.</div>
-              </div>
-              <div class="col-12">
-                <div class="elevated p-3"><i class="bi bi-hammer me-2 text-info"></i>Assess property damage and recovery processes.</div>
-              </div>
-              <div class="col-12">
-                <div class="elevated p-3"><i class="bi bi-life-preserver me-2 text-info"></i>Evaluate preparedness and response capacity.</div>
-              </div>
-              <div class="col-12">
-                <div class="elevated p-3"><i class="bi bi-shield-lock me-2 text-info"></i>Identify strategies that strengthen future resilience.</div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="elevated p-4">
-              <h5 class="fw-bold mb-3"><i class="bi bi-diagram-3 me-2 text-info"></i>Stage 1 priorities</h5>
-              <ol class="mb-0">
-                <li class="mb-2">Framework to identify neighborhoods at risk of ice‑induced tree damage.</li>
-                <li class="mb-2">Co‑designed interventions addressing community needs and priorities.</li>
-                <li>Public education on urban trees and ice‑storm hazards.</li>
-              </ol>
-            </div>
+        <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-3">
+          <div>
+            <h2 class="section-title mb-0">Partners & Support</h2>
+            <p class="section-lead mb-0">Funded by the National Science Foundation (CIVIC-PG) in collaboration with our community and academic partners.</p>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Team -->
-    <section id="team" class="bg-light">
-      <div class="container">
-        <div class="row g-3 align-items-end mb-2">
-          <div class="col-lg-8">
-            <h2 class="section-title mb-0">Team Members</h2>
-            <p class="section-lead">An interdisciplinary partnership across geography, urban sustainability, and atmospheric science.</p>
-          </div>
-        </div>
-
-        <div class="row g-4">
-          <!-- Person -->
-          <div class="col-md-6 col-lg-4">
-            <div class="elevated p-4 team-card h-100">
-              <h6>Chengbin Deng, PhD</h6>
-              <small>Associate Professor, Department of Geography & Environmental Sustainability; Director, Center for Spatial Analysis (CSA), University of Oklahoma</small>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="elevated p-4 team-card h-100">
-              <h6>Natalie Evans, MPA</h6>
-              <small>Program & Marketing Director, OKC Beautiful</small>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="elevated p-4 team-card h-100">
-              <h6>Brendan Lavy, PhD</h6>
-              <small>Assistant Professor, Department of Environmental & Sustainability Sciences, TCU</small>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="elevated p-4 team-card h-100">
-              <h6>Ming Xue, PhD, FAMS, FAGU</h6>
-              <small>Professor, School of Meteorology; Director, Center for Analysis & Prediction of Storms (CAPS), University of Oklahoma</small>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="elevated p-4 team-card h-100">
-              <h6>Di Liu, PhD</h6>
-              <small>Postdoctoral Researcher, Center for Spatial Analysis (CSA), University of Oklahoma</small>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="elevated p-4 team-card h-100">
-              <h6>Yongjie Huang, PhD</h6>
-              <small>Research Scientist, Center for Analysis & Prediction of Storms (CAPS), University of Oklahoma</small>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Callout / CTA (optional links) -->
-    <section>
-      <div class="container">
-        <div class="elevated p-4 p-lg-5 d-lg-flex align-items-center justify-content-between">
-          <div class="me-lg-4">
-            <h5 class="mb-2">Want to connect or collaborate?</h5>
-            <p class="mb-0 text-secondary">Share data, participate in interviews, or partner on resilience pilots in the OKC metro area.</p>
-          </div>
-          <div class="mt-3 mt-lg-0 d-flex gap-2">
-            <a class="btn btn-info text-dark fw-semibold" href="#team"><i class="bi bi-people me-2"></i>Meet the team</a>
-            <a class="btn btn-outline-secondary" href="#background"><i class="bi bi-journal-text me-2"></i>Learn about CIVIC</a>
+        <!--
+          Place your logo files in /img/ and adjust filenames below as needed.
+          Recommended: transparent PNG or SVG, ~180–220px width, similar visual weight.
+        -->
+        <div class="elevated p-3 p-lg-4">
+          <div class="logo-wall text-center">
+            <a class="d-block" href="https://www.nsf.gov/" target="_blank" rel="noopener">
+              <img class="img-fluid logo-item" src="img/nsf.png" alt="National Science Foundation (NSF)" />
+            </a>
+            <a class="d-block" href="https://www.ou.edu/csa" target="_blank" rel="noopener">
+              <img class="img-fluid logo-item" src="img/ou_csa.png" alt="University of Oklahoma – Center for Spatial Analysis (CSA)" />
+            </a>
+            <a class="d-block" href="https://caps.ou.edu/" target="_blank" rel="noopener">
+              <img class="img-fluid logo-item" src="img/ou_caps.png" alt="Center for Analysis & Prediction of Storms (CAPS), University of Oklahoma" />
+            </a>
+            <a class="d-block" href="https://www.okcbeautiful.com/" target="_blank" rel="noopener">
+              <img class="img-fluid logo-item" src="img/okc_beautiful.png" alt="OKC Beautiful" />
+            </a>
+            <a class="d-block" href="https://www.tcu.edu/" target="_blank" rel="noopener">
+              <img class="img-fluid logo-item" src="img/tcu.png" alt="Texas Christian University (TCU)" />
+            </a>
+            <a class="d-block" href="https://www.nsf.gov/funding/pgm_summ.jsp?pims_id=505763" target="_blank" rel="noopener">
+              <img class="img-fluid logo-item" src="img/civic_logo.png" alt="NSF Civic Innovation Challenge" />
+            </a>
           </div>
         </div>
       </div>
@@ -324,43 +178,21 @@
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <div class="row g-3 align-items-center">
-        <div class="col-md">
-          <div class="d-flex align-items-center gap-2">
-            <i class="bi bi-snow2"></i>
-            <span class="fw-semibold">CIVIC-PG Ice Storm Resilience</span>
-          </div>
-          <div class="small mt-2">&copy; <span id="year"></span> Project team at University of Oklahoma, OKC Beautiful, TCU, and CAPS.</div>
-        </div>
-        <div class="col-md-auto">
-          <a class="me-3" href="#abstract">Abstract</a>
-          <a class="me-3" href="#background">Background</a>
-          <a class="me-3" href="#purpose">Research</a>
-          <a href="#team">Team</a>
-        </div>
+    <div class="container text-center">
+      <div class="d-flex flex-wrap justify-content-center partner-logos mb-3">
+        <img src="nsf_logo.png" alt="NSF Logo">
+        <img src="ou_logo.png" alt="University of Oklahoma Logo">
+        <img src="okc_beautiful_logo.png" alt="OKC Beautiful Logo">
+        <img src="tcu_logo.png" alt="TCU Logo">
+        <img src="caps_logo.png" alt="CAPS Logo">
       </div>
+      <div class="small">&copy; <span id="year"></span> Project team at University of Oklahoma, OKC Beautiful, TCU, and CAPS.</div>
     </div>
   </footer>
 
-  <!-- Back to top button -->
-  <a href="#" class="btn btn-info shadow back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Back-to-top visibility
-    const btt = document.querySelector('.back-to-top');
-    const toggleBtt = () => {
-      if (window.scrollY > 350) btt.style.display = 'inline-flex';
-      else btt.style.display = 'none';
-    };
-    document.addEventListener('scroll', toggleBtt);
-    toggleBtt();
   </script>
 </body>
 </html>

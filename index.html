@@ -1,290 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
- <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Tree Damages Caused by Ice Storms </title>
-  <link href="css/normalize.css" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="css/prism.css"/>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tree Damages Caused by Ice Storms</title>
 
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  <link href="css/main.css" rel="stylesheet">
-    <!-- Optional theme -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!-- Bootstrap 5 (no jQuery needed) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-
-    <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-    </style>
-    <link href="css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="../assets/js/html5shiv.js"></script>
-    <![endif]-->
-
-  <link href="css/myStyle.css " rel="stylesheet">
-  <link href="css/thumbnail.css" rel="stylesheet">
-
-    <style type="text/css" media="screen">
-    table td.highlighted{background-color:#87CEFA;}
-  </style>
-
-<style>
-  h2
-  { 
-    text-align: left;
-  }
-
-     p.note
-     {
-        font-family: Arial Black;
-        font-size: 40px;
-     }
-    ul.note
-    {
-      list-style-type: none;
-      padding-left: 0px;
+  <style>
+    :root{
+      --brand:#0ea5e9;          /* cyan-500 */
+      --brand-dark:#0284c7;     /* cyan-600 */
+      --ink:#0f172a;            /* slate-900 */
+      --muted:#475569;          /* slate-600 */
+      --bg:#0b1220;             /* deep navy for header */
+      --card:#ffffff;           /* card bg */
+      --soft:#f1f5f9;           /* slate-100 */
     }
 
-    li.note {
+    html,body{ height:100%; }
+    body{
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      color: var(--ink);
+      background: #ffffff;
+      scroll-behavior:smooth;
+    }
 
-      font-family: Verdana;
+    /* === Hero / Header === */
+    .hero{
+      background: radial-gradient(1200px 700px at 80% -10%, rgba(14,165,233,.35), transparent 60%),
+                  radial-gradient(800px 600px at 10% -10%, rgba(99,102,241,.25), transparent 60%),
+                  var(--bg);
+      color:#e5f3ff;
+      padding: 6rem 0 4rem;
       position: relative;
-      padding-left: 7px;
-      font-size: 13px;
+      overflow: hidden;
+    }
+    .hero .badge{
+      background: rgba(255,255,255,.12);
+      color: #dbeafe;
+      border: 1px solid rgba(255,255,255,.2);
+      font-weight: 500;
+    }
+    .hero-title{
+      font-family: "Playfair Display", Georgia, serif;
+      font-weight: 700;
+      letter-spacing:.2px;
+      line-height:1.15;
+    }
+    .hero p{ color:#c7e7ff; }
+
+    /* Section helpers */
+    section{ padding: 4rem 0; }
+    .section-title{
+      font-weight: 700;
+      letter-spacing:.3px;
+    }
+    .section-lead{
+      color: var(--muted);
+      max-width: 68ch;
     }
 
-    li.note:before {
-        content: "\e080";
-        font-family: 'Glyphicons Halflings';
-        font-size: 16px;
-        position: relative;
-        margin-right: 3px;
-        top: 3px;
-        color: #ccc;
-      }
-</style>
+    /* Cards */
+    .elevated{
+      background: var(--card);
+      border: 1px solid #e2e8f0;
+      border-radius: 1rem;
+      box-shadow: 0 8px 30px rgba(2,8,23,.08);
+    }
+
+    /* Fancy list */
+    .icon-bullet i{
+      width: 1.4rem; height: 1.4rem;
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:999px; background: var(--soft);
+      margin-right:.6rem; color: var(--brand-dark);
+    }
+
+    /* Figure */
+    figure{ margin:0; }
+    figcaption{ color:var(--muted); font-size:.95rem; text-align:center; margin-top:.75rem; }
+
+    /* Team */
+    .team-card h6{ margin:0; font-weight:700; }
+    .team-card small{ color:var(--muted); }
+
+    /* Footer */
+    footer{
+      background:#0b1220; color:#cbd5e1; padding:2.5rem 0; font-size:.95rem;
+    }
+    footer a{ color:#e2e8f0; text-decoration:none; }
+    footer a:hover{ color:#fff; }
+
+    /* Back-to-top */
+    .back-to-top{
+      position: fixed; right: 1rem; bottom: 1rem; z-index: 1030;
+      display:none;
+    }
+
+    /* Accessibility helpers */
+    .skip-link{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden; }
+    .skip-link:focus{ position:static; width:auto; height:auto; margin:1rem; padding:.5rem 1rem; background:#fff; border-radius:.5rem; z-index:2000; }
+  </style>
 </head>
-  <body>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:rgba(11,18,32,.8); backdrop-filter: blur(8px);">
     <div class="container">
-  <h1> <center><b>Enhancing Community Resilience to Tree Damages Caused by Ice Storms through Co-design and Co-learning </b> </center> </h1>
+      <a class="navbar-brand fw-bold" href="#">CIVIC-PG Ice Storm Resilience</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div id="nav" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mt-3 mt-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#abstract">Abstract</a></li>
+          <li class="nav-item"><a class="nav-link" href="#background">Background</a></li>
+          <li class="nav-item"><a class="nav-link" href="#purpose">Research</a></li>
+          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <!--<p align = "center"><font size = "4"> <a href="https://people.eecs.berkeley.edu/~zhecao/">Zhe Cao</a>, <a href="https://www.gineshidalgo.com/">Gines Hidalgo</a>, 
-  <a href="http://www.cs.cmu.edu/~tsimon/">Tomas Simon</a>, <a href="https://scholar.google.com/citations?user=sFQD3k4AAAAJ&hl=en">Shih-En Wei</a>, 
-  <a href="http://www.cs.cmu.edu/~yaser/">Yaser Sheikh</a></font></p>-->
-  <!-- <p align = "center"><font size = "4"> Carnegie Mellon University </font></p>-->
-<br>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-lg-7">
+          <span class="badge rounded-pill px-3 py-2 mb-3"><i class="bi bi-shield-check me-2"></i>Track 1 </span>
+          <h1 class="hero-title display-5 mb-3">Enhancing Community Resilience to Tree Damages from Ice Storms through <span class="text-info">Co‑design</span> & <span class="text-info">Co‑learning</span></h1>
+          <p class="lead mb-4">A CIVIC Innovation Challenge planning project in the Oklahoma City metro: partnering with community organizations to predict, prevent, and mitigate urban tree damage during freezing rain events.</p>
+          <div class="d-flex gap-2">
+            <a href="#abstract" class="btn btn-info text-dark fw-semibold"><i class="bi bi-book-half me-2"></i>Read abstract</a>
+            <a href="#purpose" class="btn btn-outline-light"><i class="bi bi-bullseye me-2"></i>Project goals</a>
+          </div>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="elevated p-3 p-lg-4">
+            <figure>
+              <img class="img-fluid rounded-3" src="zipcode_counts.jpg" alt="Map showing zipcode-level counts across the OKC metro area" />
+              <figcaption><strong>Figure 1.</strong> Zip code–level engagement and observations in the pilot area.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-<!--  <div id="teaser">
-      <img src="pro.jpg"  width="100%" alt="cities_ndui">
-	  <h4> <center><b> Figure 1.</b> The proposed framework for generating 30m annual global NDUI Maps</center> </h4>
-  </div> -->
+  <main id="main">
+    <!-- Abstract -->
+    <section id="abstract">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-10">
+            <h2 class="section-title mb-3">Abstract</h2>
+            <div class="elevated p-4 p-lg-5">
+              <p class="mb-3">This project planning grant supports research on measures to predict and prevent urban tree damage caused by ice storms in the Southern Great Plains. Freezing rain can accumulate significant ice loads on tree canopies and built infrastructure. While the public is familiar with severe weather alerts, communities are less prepared for cascading risks from urban tree failures—damaging property, blocking roads, and disrupting utilities.</p>
+              <p class="mb-3">Partnering with industry, government, and non-profits in Oklahoma City (OKC), we combine community engagement and participatory research to empower residents in data collection, problem‑solving, and resilience‑building. Using the OKC metro as a pilot, we analyze factors contributing to urban tree vulnerability and co‑design interventions to mitigate risk.</p>
+              <p class="mb-0">Stage 1 activities include: (1) building a framework to identify areas at risk of ice‑induced tree damage; (2) co‑producing interventions that reflect community priorities; and (3) advancing education and awareness about urban forestry and ice‑storm risk. Outcomes include shareable tools and practices that strengthen preparedness and adaptation across regions and sectors.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<br>
-<h2>Abstract</h2>
- <!--<b>Quoting <a href="https://arxiv.org/abs/1812.08008"><i>OpenPose: Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields</i></a></b>:-->
-<h4 style="text-align:justify;" text-indent:50px;>
-The objective of this Civic Innovation Challenge Planning Grant (CIVIC-PG) is to support research on novel measures to predict and prevent urban tree damage caused by ice storms. Ice storms are among the most damaging weather hazards to urban tree population, yet their effect remains poorly understood. Often situated in the transition zone between solid snow and liquid rain precipitation during the winter season, freezing rain occurring over the Southern Great Plains region could create large amounts of ice accumulation on urban trees and other structures. While local communities in this region are familiar with severe storm warning and shelter-seeking advisory, they are less prepared for or knowledgeable about resulting urban tree damage and cascading risk to properties and infrastructures caused by ice storms. The project team partners with stakeholders from industry, government, and non-profit organizations in Oklahoma City (OKC), Oklahoma. Through community engagement and participatory research, the planning project aims to empower citizens in data collection, problem-solving, and resilience-building efforts in support of social cohesion, trust, and collective responsibility.
+    <!-- Background / FAQ style -->
+    <section id="background" class="bg-light">
+      <div class="container">
+        <div class="row align-items-start g-4">
+          <div class="col-lg-6">
+            <h2 class="section-title mb-3">Background</h2>
+            <p class="section-lead">About the NSF Civic Innovation Challenge (CIVIC), the Stage 1 planning phase, and why this work matters for the OKC metro area.</p>
+          </div>
+        </div>
+        <div class="row g-4 mt-1">
+          <div class="col-lg-6">
+            <div class="elevated p-4 h-100">
+              <h5 class="fw-bold"><i class="bi bi-patch-question me-2 text-info"></i>What is the NSF CIVIC Challenge?</h5>
+              <p class="mb-0">A National Science Foundation initiative that funds community‑driven innovation. It emphasizes partnerships between researchers and local stakeholders to solve real‑world problems.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="elevated p-4 h-100">
+              <h5 class="fw-bold"><i class="bi bi-flag me-2 text-info"></i>What is Stage 1?</h5>
+              <p class="mb-0">A planning and research phase (up to $75,000) to build partnerships, conduct pilot studies, and gather community input—laying the groundwork for Stage 2 implementation (up to $1M).
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="elevated p-4 h-100">
+              <h5 class="fw-bold"><i class="bi bi-broadcast me-2 text-info"></i>Our focus</h5>
+              <p class="mb-0">Tree hazard monitoring and early warning during freezing rain events, integrating atmospheric science, urban forestry, and community reporting.</p>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="elevated p-4 h-100">
+              <h5 class="fw-bold"><i class="bi bi-people me-2 text-info"></i>Why it matters</h5>
+              <ul class="list-unstyled mb-0">
+                <li class="icon-bullet mb-2"><i class="bi bi-dot"></i>Ice storms cause tree failures, outages, and road hazards.</li>
+                <li class="icon-bullet mb-2"><i class="bi bi-dot"></i>Resilience reduces damage, enhances safety, and protects the urban forest.</li>
+                <li class="icon-bullet"><i class="bi bi-dot"></i>Community participation ensures tools are usable and accessible.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-Using metropolitan OKC area as the pilot site, the research project examines factors contributing to urban tree vulnerability and develops effective solutions to mitigate risks. The goal is to create an urban tree observatory and accompanying social network in the OKC. The interdisciplinary team organizes a series of surveys and interviews to gather local knowledge. Specific tasks in Stage 1 include: (1) construct a framework to identify areas with potential risk of urban tree damages; (2) co-design and co-produce interventions addressing community-identified needs and priorities; and (3) enhance education and public awareness about the importance of urban trees, and the risk posed by ice storms. This project generates new knowledge, tools, and best practices that can be shared across communities, regions, and sectors. Collectively, they promote learning and collaboration, and foster a culture of preparedness and adaptation to ice storms.
+    <!-- Research Purpose / Goals -->
+    <section id="purpose">
+      <div class="container">
+        <div class="row g-4 align-items-center">
+          <div class="col-lg-6">
+            <h2 class="section-title mb-3">Research Purpose</h2>
+            <p class="section-lead">We combine scientific modeling with lived experience to co‑design practical solutions that communities can deploy before, during, and after ice storms.</p>
+            <div class="row g-3 mt-1">
+              <div class="col-12">
+                <div class="elevated p-3"><i class="bi bi-search me-2 text-info"></i>Understand community experiences with ice‑storm tree damage.</div>
+              </div>
+              <div class="col-12">
+                <div class="elevated p-3"><i class="bi bi-hammer me-2 text-info"></i>Assess property damage and recovery processes.</div>
+              </div>
+              <div class="col-12">
+                <div class="elevated p-3"><i class="bi bi-life-preserver me-2 text-info"></i>Evaluate preparedness and response capacity.</div>
+              </div>
+              <div class="col-12">
+                <div class="elevated p-3"><i class="bi bi-shield-lock me-2 text-info"></i>Identify strategies that strengthen future resilience.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="elevated p-4">
+              <h5 class="fw-bold mb-3"><i class="bi bi-diagram-3 me-2 text-info"></i>Stage 1 priorities</h5>
+              <ol class="mb-0">
+                <li class="mb-2">Framework to identify neighborhoods at risk of ice‑induced tree damage.</li>
+                <li class="mb-2">Co‑designed interventions addressing community needs and priorities.</li>
+                <li>Public education on urban trees and ice‑storm hazards.</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-This project is in response to the Civic Innovation Challenge program?s Track A. Climate and Environmental Instability - Building Resilient Communities through Co-Design, Adaption, and Mitigation and is a collaboration between NSF, the Department of Homeland Security, and the Department of Energy.
-</h4>
-<br>
+    <!-- Team -->
+    <section id="team" class="bg-light">
+      <div class="container">
+        <div class="row g-3 align-items-end mb-2">
+          <div class="col-lg-8">
+            <h2 class="section-title mb-0">Team Members</h2>
+            <p class="section-lead">An interdisciplinary partnership across geography, urban sustainability, and atmospheric science.</p>
+          </div>
+        </div>
 
-<br>
-<h2>Background</h2>
- <!--<b>Quoting <a href="https://arxiv.org/abs/1812.08008"><i>OpenPose: Realtime Multi-Person 2D Pose Estimation using Part Affinity Fields</i></a></b>:-->
-<h4 style="text-align:justify;" text-indent:56px;> What is the NSF CIVIC Challenge?</h4>
-<h4 style="text-align:justify;" text-indent:50px;> A funding initiative from the National Science Foundation (NSF) to encourage community-driven innovation.
-Focuses on partnerships between researchers and local communities to solve real-world problems.</h4>
-<h4 style="text-align:justify;" text-indent:56px;> What is Stage 1?</h4>
-<h4 style="text-align:justify;" text-indent:50px;> Provides planning and research funding ($75,000) to explore innovative solutions.
-Helps build partnerships, conduct pilot studies, and gather community input.
-Lays the foundation for applying to Stage 2, where up to $1 million is awarded for implementation.</h4>
-<h4 style="text-align:justify;" text-indent:56px;> Our Project: Tree Hazard Monitoring and Early Warning System for Ice Storms & Tree Damage</h4>
-<h4 style="text-align:justify;" text-indent:56px;> Goal: Develop a community-informed, science-based system to help prepare for and mitigate ice storm damage.</h4>
-<h4 style="text-align:justify;" text-indent:56px;> Stage 1 has helped us:</h4>
-<h4 style="text-align:justify;" text-indent:50px;> Survey the community to understand concerns and needs.</h4>
-<h4 style="text-align:justify;" text-indent:50px;> Engage stakeholders (city officials, emergency responders, residents).</h4>
-<h4 style="text-align:justify;" text-indent:50px;> Identify opportunities to improve urban forest resilience.</h4>
-<h4 style="text-align:justify;" text-indent:56px;> Why This Matters to You</h4>
-<h4 style="text-align:justify;" text-indent:50px;> 1.Ice storms cause widespread tree damage, power outages, and road hazards.</h4>
-<h4 style="text-align:justify;" text-indent:50px;> 2.Addressing resiliency should help us reduce damage, improve safety, and protect urban forests.</h4>
-<h4 style="text-align:justify;" text-indent:50px;> 3.Community participation ensures that what we propose is useful and accessible to the community.</h4>
-<br>
+        <div class="row g-4">
+          <!-- Person -->
+          <div class="col-md-6 col-lg-4">
+            <div class="elevated p-4 team-card h-100">
+              <h6>Chengbin Deng, PhD</h6>
+              <small>Associate Professor, Department of Geography & Environmental Sustainability; Director, Center for Spatial Analysis (CSA), University of Oklahoma</small>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="elevated p-4 team-card h-100">
+              <h6>Natalie Evans, MPA</h6>
+              <small>Program & Marketing Director, OKC Beautiful</small>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="elevated p-4 team-card h-100">
+              <h6>Brendan Lavy, PhD</h6>
+              <small>Assistant Professor, Department of Environmental & Sustainability Sciences, TCU</small>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="elevated p-4 team-card h-100">
+              <h6>Ming Xue, PhD, FAMS, FAGU</h6>
+              <small>Professor, School of Meteorology; Director, Center for Analysis & Prediction of Storms (CAPS), University of Oklahoma</small>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="elevated p-4 team-card h-100">
+              <h6>Di Liu, PhD</h6>
+              <small>Postdoctoral Researcher, Center for Spatial Analysis (CSA), University of Oklahoma</small>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="elevated p-4 team-card h-100">
+              <h6>Yongjie Huang, PhD</h6>
+              <small>Research Scientist, Center for Analysis & Prediction of Storms (CAPS), University of Oklahoma</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- Callout / CTA (optional links) -->
+    <section>
+      <div class="container">
+        <div class="elevated p-4 p-lg-5 d-lg-flex align-items-center justify-content-between">
+          <div class="me-lg-4">
+            <h5 class="mb-2">Want to connect or collaborate?</h5>
+            <p class="mb-0 text-secondary">Share data, participate in interviews, or partner on resilience pilots in the OKC metro area.</p>
+          </div>
+          <div class="mt-3 mt-lg-0 d-flex gap-2">
+            <a class="btn btn-info text-dark fw-semibold" href="#team"><i class="bi bi-people me-2"></i>Meet the team</a>
+            <a class="btn btn-outline-secondary" href="#background"><i class="bi bi-journal-text me-2"></i>Learn about CIVIC</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<!--<br>The foot keypoint <b>ordering</b> in the annotation file is as follows:<br> -->
-<!--<table border="0">
-<tr>
-    <td align="left"><img src="pro2.jpg" alt="photo" width="100%" /><h4> <center> <b>Figure 2. </b>The 2000 Normalized NTL (upper left), NDVI (lower left), and NDUI (right) maps in the Guangdong-Hong Kong-Macao Greater Bay Area, China.</center> </h4></td>
-    <!--<td>
-      <ol type="1" start="2">
-        <br>
-        <li>Left big toe.</li>
-        <li>Left small toe.</li>
-        <li>Left heel.</li>
-        <li>Right big toe.</li>
-        <li>Right small toe.</li>
-        <li>Right heel.</li>
-      </ol>
-    </td>-->
-</tr>
-</table>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row g-3 align-items-center">
+        <div class="col-md">
+          <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-snow2"></i>
+            <span class="fw-semibold">CIVIC-PG Ice Storm Resilience</span>
+          </div>
+          <div class="small mt-2">&copy; <span id="year"></span> Project team at University of Oklahoma, OKC Beautiful, TCU, and CAPS.</div>
+        </div>
+        <div class="col-md-auto">
+          <a class="me-3" href="#abstract">Abstract</a>
+          <a class="me-3" href="#background">Background</a>
+          <a class="me-3" href="#purpose">Research</a>
+          <a href="#team">Team</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-<!-- <center>
-  <img src="foot_keypoints.png"  width="150" alt="Foot examples">
-</center> -->
-  <div id="stats-table">
-     <!-- <table class="table table-striped" align="left">
-        <!--<tr>
-          <td>
-            <h5><b>Foot Keypoint Annotations (Training: ~13.5k annotations, Validation: ~0.5k annotations)</b></h5>
-          </td>
-        </tr>-->
+  <!-- Back to top button -->
+  <a href="#" class="btn btn-info shadow back-to-top" aria-label="Back to top"><i class="bi bi-arrow-up"></i></a>
 
-        <br>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
-             <!--<a href="https://code.earthengine.google.com/79c46b8a08ccb37d334a657c06510e4d"><h4>NDUI datasets</h4></a>-->
-			<!-- <h4><b>Account:714940417@qq.com </b> </h4>
-			 <h4> <b>Password:dfin5=Ed</b></h4> -->
-	    </tr>
-		
-		<br>
-		 <h2> Research Purpose </h2>
+  <script>
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-		<!-- <h4 style="text-align:justify;">In the spirit to reproducibility, we uploaded all the NDUI datasets to Google Assets <b>(2000-2005: users/714940417, 2006-2010: users/bameshannon7, and 2010-2013: users/Qinglinglab)</b>, which can then be directly accessed and analyzed on the GEE platform. </h4>
-		 <tr>
-		<h4>The GEE Code for calling the NDUI data is as the following:</h4>
-		<h4><center><b>var img_name = ee.Image(“users/714940417/Year_GridID”) ;</b></center></h4>
-		<tr>
-		<h4 style="text-align:justify;">Example: <b>var img_name = ee.Image(“users/714940417/2000_125”);</b> This will call the Tile 125 of year 2000 and assign it to the variable img_name.</h4> -->
-		<h4 style="text-align:justify;">Understand community experiences with ice storm tree damage </h4>
-		<h4 style="text-align:justify;">Assess property damage and recovery processes  </h4>
-		<h4 style="text-align:justify;">Evaluate community preparedness and response </h4>
-		<h4 style="text-align:justify;">Identify strategies for future resilience </h4>
-		<tr>
-		    <td align="left"><img src="zipcode_counts.jpg" alt="photo" width="100%" /><h4> <center> <b>Figure 1.</b> zipcode.</center> </h4></td>
-		    <!--<td>
-		      <ol type="1" start="2">
-		        <br>
-		        <li>Left big toe.</li>
-		        <li>Left small toe.</li>
-		        <li>Left heel.</li>
-		        <li>Right big toe.</li>
-		        <li>Right small toe.</li>
-		        <li>Right heel.</li>
-		      </ol>
-		    </td>-->
-		</tr>
-
-        <!--<tr>
-          <td>
-            Download the <a href="http://posefs1.perception.cs.cmu.edu/OpenPose/datasets/foot/person_keypoints_val2017_foot_v1.zip"><b>val2017_foot_v1.zip</b></a> JSON zip file.
-          </td>
-        </tr>-->
-
-        <!--<tr>
-          <td>
-            Download the image dataset from the <a href="http://cocodataset.org/#download" target="_blank"><b>original body-only dataset website</b></a> (in particular <a href="http://images.cocodataset.org/zips/train2017.zip"><b>2017 Train images [118K/18GB]</b></a> and <a href="http://images.cocodataset.org/zips/val2017.zip"><b>2017 Val images [5K/1GB]</b></a>)
-          </td>
-        </tr>-->
-
-         <!--<tr>
-          <td>
-            Trained foot detector models and testing code released in <a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose" target="_blank"><b>OpenPose</b></a>
-            </td>
-        </tr>-->
-
-      </table>
-  </div>
-  <!--<p>
-    The JSON files follow the same standard format than that of <a href="http://images.cocodataset.org/annotations/annotations_trainval2017.zip"><b>2017 Train/Val annotations [241MB]</b></a> (from the <a href="http://cocodataset.org/#download" target="_blank"><b>original body-only dataset website</b></a>).
-  </p>-->
-  <br>
- <h2>Team members</h2>
-  <h4 style="text-align:justify;">Chengbin Deng, PhD, Associate Professor, Department of Geography and Environmental Sustainability, and Director, Center for Spatial Analysis (CSA), University of Oklahoma </h4>
-  <h4 style="text-align:justify;">Natalie Evans, MPA, Program & Marketing Director, OKC Beautiful </h4>
-  <h4 style="text-align:justify;">Brendan Lavy, PhD, Assistant Professor, Department of Environmental and Sustainability Sciences, TCU </h4>
-  <h4 style="text-align:justify;">Ming Xue, PhD, FAMS, FAGU, Professor, Department of Meteorology, and Director, Center for Analysis and Prediction of Storms (CAPS), University of Oklahoma </h4>
-  <h4 style="text-align:justify;">Postdoctoral researchers: Dr. Di Liu (CSA), University of Oklahoma </h4>
-  <h4 style="text-align:justify;">Research scientist: Dr. Yongjie Huang (CAPS), University of Oklahoma </h4>
-  
-  
-
-
-<!--<br>
-<h2>Code</h2>
-<h4>
-<a href="https://github.com/CMU-Perceptual-Computing-Lab/openpose_train" target="_blank"><h4>https://github.com/CMU-Perceptual-Computing-Lab/openpose_train</h4></a>.
-</h4>-->
-
-<!--<br>
-<h2>Results</h2>-->
-<!--<center>
- <a href="https://youtu.be/Cu7g2Ldm-WM" target="_blank"> <img src="results_flashmob.gif"
-    width="640"
-    alt="Foot examples">
- Full video here: <b>here</b>
-</a>-->
-<!-- width="560" height="315" (youtube recommneded)-->
-<!-- allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" -->
-<!-- width="1024" height="576" -->
-<!-- <iframe
-width="960" height="540"
-src="https://www.youtube.com/embed/XPBw1IvixWg" frameborder="0"
-allowfullscreen></iframe> -->
-<!-- <iframe width="1024" height="450" src="https://www.youtube.com/embed/Lajt6vS_dSM" frameborder="0" allowfullscreen></iframe> -->
-<!--         <tr>
-          <td>
-            <img src="fig_feet.png"
-              width="1024"
-              alt="Foot examples">
-              height="200"
-          </td>
-        </tr> -->
-</center>
-</br>
-
-
-
-
-<!--<h2>Citation</h2>
-<h5>Please cite the following paper (<a href="https://arxiv.org/abs/1812.08008">arXiv link</a>) in your publications if the dataset helps your research.</h5>
-
- @inproceedings{cao2018openpose,
-   <br>
-   &nbsp;&nbsp;&nbsp;&nbsp;author = {Zhe Cao and Gines Hidalgo and Tomas Simon and Shih-En Wei and Yaser Sheikh},
-   <br>
-   &nbsp;&nbsp;&nbsp;&nbsp;booktitle = {arXiv preprint arXiv:1812.08008},
-   <br>
-   &nbsp;&nbsp;&nbsp;&nbsp;title = {Open{P}ose: realtime multi-person 2{D} pose estimation using {P}art {A}ffinity {F}ields},
-   <!-- &nbsp;&nbsp;&nbsp;&nbsp;title = {Open{P}ose: Realtime {M}ulti-{P}erson 2{D} {P}ose {E}stimation using {P}art {A}ffinity {F}ields},  -->
- <!--  <br>
-   &nbsp;&nbsp;&nbsp;&nbsp;year = {2018}
-   <br>
- }
- <br>-->
-
-
-
-<br>
-<!--<h2>License</h2>
-<!--<p>The software and Foot Keypoint Annotations entitled <b><i>train2017_foot_v1.zip</i></b> and <b><i>val2017_foot_v1.zip</i></b>, as provided on this webpage, are owned by Carnegie Mellon University and are licensed under the <a href="https://creativecommons.org/licenses/by/4.0/legalcode">Creative Commons Attribution 4.0 License</a>. All rights not specifically granted are reserved. For any inquiries, please contact Scott McEvoy at <a href = "mailto: mcevoy@cmu.edu">mcevoy@cmu.edu</a> or <a href = "mailto: innovation@cmu.edu">innovation@cmu.edu</a>.</p>
-
-</div> <!-- /container -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/videopreview.js"></script>
-  </body>
+    // Back-to-top visibility
+    const btt = document.querySelector('.back-to-top');
+    const toggleBtt = () => {
+      if (window.scrollY > 350) btt.style.display = 'inline-flex';
+      else btt.style.display = 'none';
+    };
+    document.addEventListener('scroll', toggleBtt);
+    toggleBtt();
+  </script>
+</body>
 </html>

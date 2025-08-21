@@ -11,8 +11,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-  <!-- Bootstrap 5 (no jQuery needed) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
     :root{
@@ -26,7 +26,7 @@
     }
 
     body{
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji", "Segoe UI Symbol";
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
       color: var(--ink);
       background: #ffffff;
       scroll-behavior:smooth;
@@ -38,161 +38,74 @@
                   var(--bg);
       color:#e5f3ff;
       padding: 6rem 0 4rem;
-      position: relative;
-      overflow: hidden;
     }
-
-    .hero-title{
-      font-family: "Playfair Display", Georgia, serif;
-      font-weight: 700;
-      letter-spacing:.2px;
-      line-height:1.15;
-    }
-
+    .hero-title{ font-family: "Playfair Display", Georgia, serif; font-weight: 700; }
     section{ padding: 4rem 0; }
-    .section-title{ font-weight: 700; }
-    .section-lead{ color: var(--muted); max-width: 68ch; }
+    .elevated{ background: var(--card); border: 1px solid #e2e8f0; border-radius: 1rem; box-shadow: 0 8px 30px rgba(2,8,23,.08); }
 
-    .elevated{
-      background: var(--card);
-      border: 1px solid #e2e8f0;
-      border-radius: 1rem;
-      box-shadow: 0 8px 30px rgba(2,8,23,.08);
-    }
-
-    footer{ background:#0b1220; color:#cbd5e1; padding:2.5rem 0; font-size:.95rem; }
-    footer a{ color:#e2e8f0; text-decoration:none; }
-    footer a:hover{ color:#fff; }
-
-    .partner-logos img{
-      max-height:70px;
-      margin: 1rem;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,.2));
-    }
-      /* Logo wall */
-    .logo-wall{ display:grid; grid-template-columns: repeat(2, minmax(120px,1fr)); gap:1.25rem; align-items:center; }
-    @media (min-width: 576px){ .logo-wall{ grid-template-columns: repeat(3, minmax(140px,1fr)); } }
-    @media (min-width: 992px){ .logo-wall{ grid-template-columns: repeat(6, minmax(150px,1fr)); } }
+    /* Logo wall */
+    .logo-wall{ display:grid; grid-template-columns: repeat(auto-fit, minmax(140px,1fr)); gap:1.5rem; align-items:center; }
     .logo-item{ filter: grayscale(100%); opacity:.75; transition: all .25s ease; }
     .logo-item:hover{ filter:none; opacity:1; transform: translateY(-2px); }
+
+    footer{ background:#0b1220; color:#cbd5e1; padding:2.5rem 0; }
   </style>
 </head>
-
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background:rgba(11,18,32,.8); backdrop-filter: blur(8px);">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background:rgba(11,18,32,.8);">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#">CIVIC-PG Ice Storm Resilience</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
       <div id="nav" class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto align-items-lg-center">
+        <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="#abstract">Abstract</a></li>
           <li class="nav-item"><a class="nav-link" href="#background">Background</a></li>
           <li class="nav-item"><a class="nav-link" href="#purpose">Research</a></li>
-          $1
+          <li class="nav-item"><a class="nav-link" href="#team">Team</a></li>
           <li class="nav-item"><a class="nav-link" href="#partners">Partners</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero -->
   <header class="hero">
     <div class="container">
-      <div class="row align-items-center g-4">
-        <div class="col-12 col-lg-7">
-          <span class="badge rounded-pill px-3 py-2 mb-3"><i class="bi bi-shield-check me-2"></i>Track 1 </span>
-          <h1 class="hero-title display-5 mb-3">Enhancing Community Resilience to Tree Damages from Ice Storms through <span class="text-info">Co‑design</span> & <span class="text-info">Co‑learning</span></h1>
-          <p class="lead mb-4">A CIVIC Innovation Challenge planning project in the Oklahoma City metro: partnering with community organizations to predict, prevent, and mitigate urban tree damage during freezing rain events.</p>
-        </div>
-        <div class="col-12 col-lg-5">
-          <div class="elevated p-3 p-lg-4">
-            <figure>
-              <img class="img-fluid rounded-3" src="zipcode_counts.jpg" alt="Map showing zipcode-level counts across the OKC metro area" />
-              <figcaption><strong>Figure 1.</strong> Zip code–level engagement and observations in the pilot area.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </div>
-      <div class="partner-logos text-center mt-5">
-        <img src="nsf_logo.png" alt="NSF Logo">
-        <img src="ou_logo.png" alt="University of Oklahoma Logo">
-        <img src="okc_beautiful_logo.png" alt="OKC Beautiful Logo">
-        <img src="tcu_logo.png" alt="TCU Logo">
-        <img src="caps_logo.png" alt="CAPS Logo">
-      </div>
+      <h1 class="hero-title display-5 mb-3">Enhancing Community Resilience to Tree Damages from Ice Storms</h1>
+      <p class="lead">A CIVIC Innovation Challenge planning project in Oklahoma City.</p>
     </div>
   </header>
 
   <main id="main">
-    <!-- Abstract -->
-    <section id="abstract">
-      <div class="container">
-        <h2 class="section-title mb-3">Abstract</h2>
-        <div class="elevated p-4 p-lg-5">
-          <p>... (content unchanged) ...</p>
-        </div>
-      </div>
-    </section>
+    <section id="abstract"><div class="container"><h2>Abstract</h2><h4 style="text-align:justify;" text-indent="50px;"> The objective of this Civic Innovation Challenge Planning Grant (CIVIC-PG) is to support research on novel measures to predict and prevent urban tree damage caused by ice storms. Ice storms are among the most damaging weather hazards to urban tree population, yet their effect remains poorly understood. Often situated in the transition zone between solid snow and liquid rain precipitation during the winter season, freezing rain occurring over the Southern Great Plains region could create large amounts of ice accumulation on urban trees and other structures. While local communities in this region are familiar with severe storm warning and shelter-seeking advisory, they are less prepared for or knowledgeable about resulting urban tree damage and cascading risk to properties and infrastructures caused by ice storms. The project team partners with stakeholders from industry, government, and non-profit organizations in Oklahoma City (OKC), Oklahoma. Through community engagement and participatory research, the planning project aims to empower citizens in data collection, problem-solving, and resilience-building efforts in support of social cohesion, trust, and collective responsibility.  Using metropolitan OKC area as the pilot site, the research project examines factors contributing to urban tree vulnerability and develops effective solutions to mitigate risks. The goal is to create an urban tree observatory and accompanying social network in the OKC. The interdisciplinary team organizes a series of surveys and interviews to gather local knowledge. Specific tasks in Stage 1 include: (1) construct a framework to identify areas with potential risk of urban tree damages; (2) co-design and co-produce interventions addressing community-identified needs and priorities; and (3) enhance education and public awareness about the importance of urban trees, and the risk posed by ice storms. This project generates new knowledge, tools, and best practices that can be shared across communities, regions, and sectors. Collectively, they promote learning and collaboration, and foster a culture of preparedness and adaptation to ice storms.  This project is in response to the Civic Innovation Challenge program’s Track A. Climate and Environmental Instability - Building Resilient Communities through Co-Design, Adaption, and Mitigation and is a collaboration between NSF, the Department of Homeland Security, and the Department of Energy. </h4></div></section>
+    <section id="background" class="bg-light"><div class="container"><h2>Background</h2><h4 style="text-align:justify;" text-indent="56px;"> What is the NSF CIVIC Challenge?</h4><h4 style="text-align:justify;" text-indent="50px;"> A funding initiative from the National Science Foundation (NSF) to encourage community-driven innovation. Focuses on partnerships between researchers and local communities to solve real-world problems.</h4><h4 style="text-align:justify;" text-indent="56px;"> What is Stage 1?</h4><h4 style="text-align:justify;" text-indent="50px;"> Provides planning and research funding ($75,000) to explore innovative solutions. Helps build partnerships, conduct pilot studies, and gather community input. Lays the foundation for applying to Stage 2, where up to $1 million is awarded for implementation.</h4><h4 style="text-align:justify;" text-indent="56px;"> Our Project: Tree Hazard Monitoring and Early Warning System for Ice Storms & Tree Damage</h4><h4 style="text-align:justify;" text-indent="56px;"> Goal: Develop a community-informed, science-based system to help prepare for and mitigate ice storm damage.</h4><h4 style="text-align:justify;" text-indent="56px;"> Stage 1 has helped us:</h4><h4 style="text-align:justify;" text-indent="50px;"> Survey the community to understand concerns and needs.</h4><h4 style="text-align:justify;" text-indent="50px;"> Engage stakeholders (city officials, emergency responders, residents).</h4><h4 style="text-align:justify;" text-indent="50px;"> Identify opportunities to improve urban forest resilience.</h4><h4 style="text-align:justify;" text-indent="56px;"> Why This Matters to You</h4><h4 style="text-align:justify;" text-indent="50px;"> 1.Ice storms cause widespread tree damage, power outages, and road hazards.</h4><h4 style="text-align:justify;" text-indent="50px;"> 2.Addressing resiliency should help us reduce damage, improve safety, and protect urban forests.</h4><h4 style="text-align:justify;" text-indent="50px;"> 3.Community participation ensures that what we propose is useful and accessible to the community.</h4></div></section>
+    <section id="purpose"><div class="container"><h2> Research Purpose </h2><h4 style="text-align:justify;">Understand community experiences with ice storm tree damage </h4><h4 style="text-align:justify;">Assess property damage and recovery processes </h4><h4 style="text-align:justify;">Evaluate community preparedness and response </h4><h4 style="text-align:justify;">Identify strategies for future resilience </h4><figure class="mt-3"><img src="zipcode_counts.jpg" alt="zipcode" class="img-fluid rounded-3"/><figcaption><b>Figure 1.</b> zipcode.</figcaption></figure></div></section>
+    <section id="team" class="bg-light"><div class="container"><h2>Team members</h2><h4 style="text-align:justify;">Chengbin Deng, PhD, Associate Professor, Department of Geography and Environmental Sustainability, and Director, Center for Spatial Analysis (CSA), University of Oklahoma </h4><h4 style="text-align:justify;">Natalie Evans, MPA, Program & Marketing Director, OKC Beautiful </h4><h4 style="text-align:justify;">Brendan Lavy, PhD, Assistant Professor, Department of Environmental and Sustainability Sciences, TCU </h4><h4 style="text-align:justify;">Ming Xue, PhD, FAMS, FAGU, Professor, Department of Meteorology, and Director, Center for Analysis and Prediction of Storms (CAPS), University of Oklahoma </h4><h4 style="text-align:justify;">Postdoctoral researchers: Dr. Di Liu (CSA), University of Oklahoma </h4><h4 style="text-align:justify;">Research scientist: Dr. Yongjie Huang (CAPS), University of Oklahoma </h4></div></section>
 
-    <!-- Other sections unchanged -->
-
-      <!-- Partner Logos -->
-    <section id="partners" class="bg-light">
+    <section id="partners">
       <div class="container">
-        <div class="d-flex align-items-end justify-content-between flex-wrap gap-2 mb-3">
-          <div>
-            <h2 class="section-title mb-0">Partners & Support</h2>
-            <p class="section-lead mb-0">Funded by the National Science Foundation (CIVIC-PG) in collaboration with our community and academic partners.</p>
-          </div>
-        </div>
-        <!--
-          Place your logo files in /img/ and adjust filenames below as needed.
-          Recommended: transparent PNG or SVG, ~180–220px width, similar visual weight.
-        -->
-        <div class="elevated p-3 p-lg-4">
-          <div class="logo-wall text-center">
-            <a class="d-block" href="https://www.nsf.gov/" target="_blank" rel="noopener">
-              <img class="img-fluid logo-item" src="img/nsf.png" alt="National Science Foundation (NSF)" />
-            </a>
-            <a class="d-block" href="https://www.ou.edu/csa" target="_blank" rel="noopener">
-              <img class="img-fluid logo-item" src="img/ou_csa.png" alt="University of Oklahoma – Center for Spatial Analysis (CSA)" />
-            </a>
-            <a class="d-block" href="https://caps.ou.edu/" target="_blank" rel="noopener">
-              <img class="img-fluid logo-item" src="img/ou_caps.png" alt="Center for Analysis & Prediction of Storms (CAPS), University of Oklahoma" />
-            </a>
-            <a class="d-block" href="https://www.okcbeautiful.com/" target="_blank" rel="noopener">
-              <img class="img-fluid logo-item" src="img/okc_beautiful.png" alt="OKC Beautiful" />
-            </a>
-            <a class="d-block" href="https://www.tcu.edu/" target="_blank" rel="noopener">
-              <img class="img-fluid logo-item" src="img/tcu.png" alt="Texas Christian University (TCU)" />
-            </a>
-            <a class="d-block" href="https://www.nsf.gov/funding/pgm_summ.jsp?pims_id=505763" target="_blank" rel="noopener">
-              <img class="img-fluid logo-item" src="img/civic_logo.png" alt="NSF Civic Innovation Challenge" />
-            </a>
-          </div>
+        <h2>Partners & Support</h2>
+        <p class="mb-4">Funded by the National Science Foundation (CIVIC-PG) with collaboration from our community and academic partners.</p>
+        <div class="logo-wall">
+          <img class="img-fluid logo-item" src="img/nsf.png" alt="NSF logo">
+          <img class="img-fluid logo-item" src="img/ou_csa.png" alt="OU CSA logo">
+          <img class="img-fluid logo-item" src="img/ou_caps.png" alt="OU CAPS logo">
+          <img class="img-fluid logo-item" src="img/okc_beautiful.png" alt="OKC Beautiful logo">
+          <img class="img-fluid logo-item" src="img/tcu.png" alt="TCU logo">
+          <img class="img-fluid logo-item" src="img/civic_logo.png" alt="CIVIC logo">
         </div>
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <div class="container text-center">
-      <div class="d-flex flex-wrap justify-content-center partner-logos mb-3">
-        <img src="nsf_logo.png" alt="NSF Logo">
-        <img src="ou_logo.png" alt="University of Oklahoma Logo">
-        <img src="okc_beautiful_logo.png" alt="OKC Beautiful Logo">
-        <img src="tcu_logo.png" alt="TCU Logo">
-        <img src="caps_logo.png" alt="CAPS Logo">
-      </div>
-      <div class="small">&copy; <span id="year"></span> Project team at University of Oklahoma, OKC Beautiful, TCU, and CAPS.</div>
+    <div class="container">
+      <div>&copy; <span id="year"></span> Project team at University of Oklahoma, OKC Beautiful, TCU, and CAPS.</div>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('year').textContent=new Date().getFullYear();</script>
 </body>
 </html>
